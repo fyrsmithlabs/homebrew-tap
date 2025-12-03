@@ -11,7 +11,7 @@ class Contextd < Formula
   on_macos do
     if Hardware::CPU.intel?
       url "https://github.com/fyrsmithlabs/contextd/releases/download/v0.1.0-alpha/contextd_0.1.0-alpha_darwin_amd64.tar.gz"
-      sha256 "ba29c8470cc634f168a3379eec5e270ccb973e67f14b70ecb5a91f25ddfeb1bf"
+      sha256 "747c697ca6f88fdad9d2c183604d54eeb50866d705c74d07e13fac8048dbf094"
 
       def install
         bin.install "contextd"
@@ -20,7 +20,7 @@ class Contextd < Formula
     end
     if Hardware::CPU.arm?
       url "https://github.com/fyrsmithlabs/contextd/releases/download/v0.1.0-alpha/contextd_0.1.0-alpha_darwin_arm64.tar.gz"
-      sha256 "f9e5ee0554453bd38041e3f8583b02789dd5414312f444d8d0cb12343b8cbce8"
+      sha256 "ac1ff8c7461f630dd7a247add0729aa4afebb7164d709024f0c474c97f5fe73d"
 
       def install
         bin.install "contextd"
@@ -32,7 +32,7 @@ class Contextd < Formula
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
       url "https://github.com/fyrsmithlabs/contextd/releases/download/v0.1.0-alpha/contextd_0.1.0-alpha_linux_amd64.tar.gz"
-      sha256 "b2570b2c01a63ed17bc9373bde5033d0624a0c7eadc3b80ebeaad4e44320d268"
+      sha256 "979b10999ee4dcca15e1fac424c866bb5b5639370434e1f8933f2f040a67c571"
       def install
         bin.install "contextd"
         bin.install "ctxd"
@@ -40,7 +40,7 @@ class Contextd < Formula
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
       url "https://github.com/fyrsmithlabs/contextd/releases/download/v0.1.0-alpha/contextd_0.1.0-alpha_linux_arm64.tar.gz"
-      sha256 "2915cc695aeeb6beb3898f60f5ea24c34596110061119dbdc883f575f2b911de"
+      sha256 "0bff0ec913bafc7b5b84b62be158402ab24b1fa3b7081286271aa072e5b716a5"
       def install
         bin.install "contextd"
         bin.install "ctxd"
