@@ -5,13 +5,13 @@
 class Contextd < Formula
   desc "AI context and reasoning engine for Claude Code"
   homepage "https://github.com/fyrsmithlabs/contextd"
-  version "0.1.0-alpha"
+  version "0.1.1"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/fyrsmithlabs/contextd/releases/download/v0.1.0-alpha/contextd_0.1.0-alpha_darwin_amd64.tar.gz"
-      sha256 "491ca160f9b226028241648439b5e8b40f9d6f50de80c3e448159ac38362ee89"
+      url "https://github.com/fyrsmithlabs/contextd/releases/download/v0.1.1/contextd_0.1.1_darwin_amd64.tar.gz"
+      sha256 "6a4c74561b7a37ace85e6d5fcbb06d3f04e6dd47645da986fb25a84d0ca2526a"
 
       def install
         bin.install "contextd"
@@ -19,8 +19,8 @@ class Contextd < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/fyrsmithlabs/contextd/releases/download/v0.1.0-alpha/contextd_0.1.0-alpha_darwin_arm64.tar.gz"
-      sha256 "8196728b7b3f3603a5bf0d3d40fca866393a8bac78050bb42d567ab11c1e38ed"
+      url "https://github.com/fyrsmithlabs/contextd/releases/download/v0.1.1/contextd_0.1.1_darwin_arm64.tar.gz"
+      sha256 "03f9a9cbdac1841e7643038e2beeac3604fdb397f30bc1485d4011b0266dd7e8"
 
       def install
         bin.install "contextd"
@@ -31,16 +31,16 @@ class Contextd < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/fyrsmithlabs/contextd/releases/download/v0.1.0-alpha/contextd_0.1.0-alpha_linux_amd64.tar.gz"
-      sha256 "0edd5fd1ae6bad6ea9593f2cc946ffb9e85558a78ec2c4dbbe9bf4c090c20c67"
+      url "https://github.com/fyrsmithlabs/contextd/releases/download/v0.1.1/contextd_0.1.1_linux_amd64.tar.gz"
+      sha256 "0eeafb6f2bdedb48027e2002ac56cbb3b4d4cb65999a4a680e9663aae1f8c93e"
       def install
         bin.install "contextd"
         bin.install "ctxd"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/fyrsmithlabs/contextd/releases/download/v0.1.0-alpha/contextd_0.1.0-alpha_linux_arm64.tar.gz"
-      sha256 "71e4e71cabc308897f07dcf9aa0690a941c02d280a1284604e225606566759f1"
+      url "https://github.com/fyrsmithlabs/contextd/releases/download/v0.1.1/contextd_0.1.1_linux_arm64.tar.gz"
+      sha256 "7d520b1f8bd828389a2f6752bb97be1905f78adfb8d4c300ec8264c733075eb5"
       def install
         bin.install "contextd"
         bin.install "ctxd"
