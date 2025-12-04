@@ -5,13 +5,16 @@
 class Contextd < Formula
   desc "AI context and reasoning engine for Claude Code"
   homepage "https://github.com/fyrsmithlabs/contextd"
-  version "0.1.2"
+  version "0.1.3"
   license "MIT"
+
+  depends_on "onnxruntime"
+  depends_on "qdrant"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/fyrsmithlabs/contextd/releases/download/v0.1.2/contextd_0.1.2_darwin_amd64.tar.gz"
-      sha256 "680819fe4ced464ea091e64b6f2490522c1e93610f576a6ed152658613c9cbce"
+      url "https://github.com/fyrsmithlabs/contextd/releases/download/v0.1.3/contextd_0.1.3_darwin_amd64.tar.gz"
+      sha256 "6810203a268dd00efc58730d698080636128acb8aa03de566f8406ec6842ad6c"
 
       def install
         bin.install "contextd"
@@ -19,8 +22,8 @@ class Contextd < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/fyrsmithlabs/contextd/releases/download/v0.1.2/contextd_0.1.2_darwin_arm64.tar.gz"
-      sha256 "a3c9cd8575ca75c6c9bea07b2aad516da25eb3c495194c8a67180f8c3d100f77"
+      url "https://github.com/fyrsmithlabs/contextd/releases/download/v0.1.3/contextd_0.1.3_darwin_arm64.tar.gz"
+      sha256 "578866f0d26ccf0715d2b267e4b4ecb351bc6482bb2a7f0fe5659210a2404d6c"
 
       def install
         bin.install "contextd"
@@ -31,21 +34,29 @@ class Contextd < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/fyrsmithlabs/contextd/releases/download/v0.1.2/contextd_0.1.2_linux_amd64.tar.gz"
-      sha256 "0960d2a73c61dfad88baa1eb2c232a3decdb49453c468a904108853bae135742"
+      url "https://github.com/fyrsmithlabs/contextd/releases/download/v0.1.3/contextd_0.1.3_linux_amd64.tar.gz"
+      sha256 "920e78f3a722518e0f3ef443ee446f9e2ee412ddb4010d486c528d764383f2ee"
       def install
         bin.install "contextd"
         bin.install "ctxd"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/fyrsmithlabs/contextd/releases/download/v0.1.2/contextd_0.1.2_linux_arm64.tar.gz"
-      sha256 "5e0559374a03dfa6f0ec947f16649dbe7cd5e89e3c62c9c54f128fbf3a059dac"
+      url "https://github.com/fyrsmithlabs/contextd/releases/download/v0.1.3/contextd_0.1.3_linux_arm64.tar.gz"
+      sha256 "196b04d05c8359183a222609073ec632699d2e04ff2b4cdd22b2a24957bea8d4"
       def install
         bin.install "contextd"
         bin.install "ctxd"
       end
     end
+  end
+
+  service do
+    run [opt_bin/"qdrant", "--uri", "0.0.0.0:6334"]
+    keep_alive true
+    working_dir HOMEBREW_PREFIX
+    environment_variables:
+      QDRANT__STORAGE__STORAGE_PATH: "#{var}/qdrant/storage"
   end
 
   test do
